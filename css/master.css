@@ -1,0 +1,25 @@
+.webStandard { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 11px; }
+.webStandard strong { font-weight: bold; }
+
+.webStandard p { line-height: 18px; color: $typo; margin-bottom: 10px; }
+
+.webStandard h1 { font-size: 16px; margin-bottom: 10px; color: $mainColor; } /* Überschrift 1 */
+.webStandard h2 { font-size: 14px; margin-bottom: 10px; color: $mainColor; } /* Überschrift 2 */
+.webStandard h3 { font-size: 14px; margin-bottom: 5px;  } /* Überschrift 3 */
+.webStandard h4 { font-size: 12px; margin-bottom: 5px; color: $mainColor; } /* Überschrift 4 */
+.webStandard h5 { font-size: 11px; margin-bottom: 5px; color: $mainColor; } /* Überschrift 5 */
+
+.webStandard a { text-decoration: none; color: $mainColor; }
+.webStandard a:hover { text-decoration: none; color: $secColor; }
+
+.webStandard ol,
+.webStandard ul { margin-bottom: 10px; margin-left: 20px; color: $typo; line-height: 17px; }
+.webStandard li { list-style-type: square; margin-bottom: 5px; }
+
+.webListNone li {
+    list-style-type: none;
+    list-style-image: none !important;
+    margin-bottom: 0px !important;
+}
+
+.webSuccess { font-weight: bold; }
