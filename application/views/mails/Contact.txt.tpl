@@ -1,18 +1,20 @@
-Es wurde eine Anfrage auf <?= $this->host; ?> gestellt.
+<?=trlVps('You got a requst on {0}', $this->host);?>.
 
-Anfrage:
+
+<?=trlVps('Enquiry');?>:
 <?= $this->content; ?>
 
 
-Absenderdaten:
-Name: <?= $this->firstname; ?> <?= $this->lastname; ?>
+<?=trlVps('This enquiry was sent by');?>:
 
-Email: <?= $this->email; ?>
+<?=trlVps('Name');?>: <?= $this->firstname; ?> <?= $this->lastname; ?>
 
-Firma: <?= $this->company; ?>
+<?=trlVps('Email');?>: <?= $this->email; ?>
 
-Straße: <?= $this->street; ?>
+<?=trlVps('Company');?>: <?= $this->company; ?>
 
-PLZ / Ort: <?= $this->city; ?>
+<?=trlVps('Street');?>: <?= $this->street; ?>
 
-Telefon: <?= $this->phone; ?>
+<?=trlVps('ZIP / City');?>: <?= $this->city; ?>
+
+<?=trlVps('Phone');?>: <?= $this->phone; ?>

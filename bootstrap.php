@@ -17,7 +17,6 @@ Vps_Setup::dispatchMedia();
 Vps_Assets_Loader::load();
 
 $front = Vps_Controller_Front_Component::getInstance();
-$front->addControllerDirectory('application/controllers/User', 'user');
 
 $acl = new Vps_Acl_Component();
 

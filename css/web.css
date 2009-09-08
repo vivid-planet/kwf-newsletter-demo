@@ -1,36 +1,15 @@
 body.ext-ie6 { text-align: center; }
 
-.clear { clear: both; }
-.left { float: left; }
-.right { float: right; }
-
 #page #outerHeader #header,
 #page #outerContent #mainMenu,
 #page #outerContent #content,
 #page #outerFooter #footer { width: 900px; margin: 0px auto; text-align: left; }
 
-.webForm label { width: 120px; }
-.webForm .vpsFieldRequired label { font-weight: bold; }
+.webSuccess { font-weight: bold; }
+
 .webForm input,
 .webForm textarea,
 .webForm button {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
     font-size: 11px;
 }
-.webForm .vpsFormFieldRadioHorizontal label { float: none; width: auto; }
-.webForm .submitWrapper { margin-top: 20px; text-align: center; }
-.webForm .submitWrapper span.button { float: none; }
-
-.webFormError {
-    border: 1px dashed $mainColor;
-    margin-bottom: 20px;
-    padding: 10px 10px 0px 10px !important;
-}
-.webFormError h1 { margin-bottom: 10px; }
-
-.webLightbox { height: 590px; }
-.webLightbox .lightboxHeader { padding-top: 7px !important; padding-bottom: 0px !important; }
-.webLightbox .lightboxHeader span { float: left; }
-.webLightbox .switchBig { display: none; }
-.webLightbox .lightboxBody { height: 540px; }
-.webLightbox .lightboxFooter .prevBtn { width: auto; }
