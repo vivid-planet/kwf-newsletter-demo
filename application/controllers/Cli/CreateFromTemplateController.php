@@ -3,7 +3,7 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
 {
     public static function getHelp()
     {
-        return "generate benchmark-log statistics";
+        return "create a new web from the template";
     }
 
     public static function getHelpOptions()
