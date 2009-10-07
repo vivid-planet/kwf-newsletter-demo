@@ -36,7 +36,7 @@ class Vpc_Template_Contact_Form extends Vps_Form
             ->setAllowBlank(false);
         $this->add(new Vps_Form_Field_TextField('phone', trlVps('Phone')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextArea('content', trlVps('Note')))
+        $this->add(new Vps_Form_Field_TextArea('content', trlVps('Message')))
             ->setWidth(255)
             ->setHeight(120)
             ->setAllowBlank(false);
