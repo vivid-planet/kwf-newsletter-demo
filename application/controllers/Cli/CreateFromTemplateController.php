@@ -19,7 +19,7 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
                 'param'=> 'className',
                 'value'=>'Name',
                 'allowBlank' => true,
-                'help' => 'name prefix for classes (Vps_Foo)'
+                'help' => '(optional) name prefix for classes (Vps_ClassName); without Vps_'
             ),
             array(
                 'param'=> 'name',
@@ -49,6 +49,18 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
         }
         if (!preg_match('#^[a-zA-Z0-9]+$#', $className)) {
             throw new Vps_ClientException("Invalid className");
+        }
+        
+
+        echo "id: $id\n";
+        echo "className: $className (Vps_$className)\n";
+        echo "name: $name\n";
+        echo "continue?  [Y/n]";
+        $stdin = fopen('php://stdin', 'r');
+        $input = trim(strtolower(fgets($stdin, 2)));
+        fclose($stdin);
+        if (!($input == '' || $input == 'j' || $input == 'y')) {
+            exit;
         }
 
         $debug = $this->_getParam('debug');
