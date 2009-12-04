@@ -5,7 +5,7 @@ class Vpc_Template_Contact_Component extends Vpc_Form_Component
     {
         $ret = parent::getSettings();
         $ret['componentName'] = trl('Contactform');
-        $ret['placeholder']['submitButton'] = trlVps('Send message');
+        $ret['placeholder']['submitButton'] = trl('Send message');
         return $ret;
     }
 }
