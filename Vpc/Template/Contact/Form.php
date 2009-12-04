@@ -11,32 +11,32 @@ class Vpc_Template_Contact_Form extends Vps_Form
 
         $row->addTo('christoph@vivid.vps');
         $row->setFrom($row->email);
-        $row->subject = trlVps('Enquiry on {0}',$host);
+        $row->subject = trl('Enquiry on {0}',$host);
     }
 
     protected function _init()
     {
         $this->setModel(new Vps_Model_Mail(array('tpl' => 'Contact')));
 
-        $this->add(new Vps_Form_Field_TextField('firstname', trlVps('Firstname')))
+        $this->add(new Vps_Form_Field_TextField('firstname', trl('Firstname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('lastname', trlVps('Lastname')))
+        $this->add(new Vps_Form_Field_TextField('lastname', trl('Lastname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('company', trlVps('Company')))
+        $this->add(new Vps_Form_Field_TextField('company', trl('Company')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('street', trlVps('Street')))
+        $this->add(new Vps_Form_Field_TextField('street', trl('Street')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('city', trlVps('ZIP / City')))
+        $this->add(new Vps_Form_Field_TextField('city', trl('ZIP / City')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('email', trlVps('E-Mail')))
+        $this->add(new Vps_Form_Field_TextField('email', trl('E-Mail')))
             ->setWidth(255)
             ->setVtype('email')
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('phone', trlVps('Phone')))
+        $this->add(new Vps_Form_Field_TextField('phone', trl('Phone')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextArea('content', trlVps('Message')))
+        $this->add(new Vps_Form_Field_TextArea('content', trl('Message')))
             ->setWidth(255)
             ->setHeight(120)
             ->setAllowBlank(false);
