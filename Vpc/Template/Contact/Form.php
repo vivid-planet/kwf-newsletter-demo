@@ -11,32 +11,32 @@ class Vpc_Template_Contact_Form extends Vps_Form
 
         $row->addTo('christoph@vivid.vps');
         $row->setFrom($row->email);
-        $row->subject = trl('Enquiry on {0}',$host);
+        $row->subject = trl('Anfrage auf {0}',$host);
     }
 
     protected function _init()
     {
         $this->setModel(new Vps_Model_Mail(array('tpl' => 'Contact')));
 
-        $this->add(new Vps_Form_Field_TextField('firstname', trl('Firstname')))
+        $this->add(new Vps_Form_Field_TextField('firstname', trl('Vorname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('lastname', trl('Lastname')))
+        $this->add(new Vps_Form_Field_TextField('lastname', trl('Nachname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('company', trl('Company')))
+        $this->add(new Vps_Form_Field_TextField('company', trl('Firma')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('street', trl('Street')))
+        $this->add(new Vps_Form_Field_TextField('street', trl('Strasse')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('city', trl('ZIP / City')))
+        $this->add(new Vps_Form_Field_TextField('city', trl('PLZ / Ort')))
             ->setWidth(255);
         $this->add(new Vps_Form_Field_TextField('email', trl('E-Mail')))
             ->setWidth(255)
             ->setVtype('email')
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('phone', trl('Phone')))
+        $this->add(new Vps_Form_Field_TextField('phone', trl('Telefon')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextArea('content', trl('Message')))
+        $this->add(new Vps_Form_Field_TextArea('content', trl('Nachricht')))
             ->setWidth(255)
             ->setHeight(120)
             ->setAllowBlank(false);
