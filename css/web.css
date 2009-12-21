@@ -5,6 +5,9 @@ body.ext-ie6 { text-align: center; }
 #page #outerContent #content,
 #page #outerFooter #footer { width: 900px; margin: 0px auto; text-align: left; }
 
+.webListNone,
+.webListNone li { margin-bottom: 0px; }
+
 .webSuccess { font-weight: bold; }
 
 .webForm input,
