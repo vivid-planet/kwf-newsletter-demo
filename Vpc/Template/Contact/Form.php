@@ -18,25 +18,25 @@ class Vpc_Template_Contact_Form extends Vps_Form
     {
         $this->setModel(new Vps_Model_Mail(array('tpl' => 'Contact')));
 
-        $this->add(new Vps_Form_Field_TextField('firstname', trl('Vorname')))
+        $this->add(new Vps_Form_Field_TextField('firstname', trlVps('Firstname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('lastname', trl('Nachname')))
+        $this->add(new Vps_Form_Field_TextField('lastname', trlVps('Lastname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('company', trl('Firma')))
+        $this->add(new Vps_Form_Field_TextField('company', trlVps('Company')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('street', trl('Strasse')))
+        $this->add(new Vps_Form_Field_TextField('street', trlVps('Street')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('city', trl('PLZ / Ort')))
+        $this->add(new Vps_Form_Field_TextField('city', trlVps('ZIP / City')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextField('email', trl('E-Mail')))
+        $this->add(new Vps_Form_Field_TextField('email', trlVps('E-Mail')))
             ->setWidth(255)
             ->setVtype('email')
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('phone', trl('Telefon')))
+        $this->add(new Vps_Form_Field_TextField('phone', trlVps('Phone')))
             ->setWidth(255);
-        $this->add(new Vps_Form_Field_TextArea('content', trl('Nachricht')))
+        $this->add(new Vps_Form_Field_TextArea('content', trlVps('Message')))
             ->setWidth(255)
             ->setHeight(120)
             ->setAllowBlank(false);
