@@ -26,11 +26,6 @@ $acl->add(new Vps_Acl_Resource_MenuDropdown('settings',
             array('text'=>trl('Benutzerverwaltung'), 'icon'=>'user.png'),
             '/vps/user/users'), 'settings');
         $acl->add(new Zend_Acl_Resource('vps_user_user'), 'vps_user_users');
-    $acl->add(new Vps_Acl_Resource_MenuUrl('vps_pool_pools',
-            array('text'=>trl('Pools'), 'icon'=>'book_open.png'),
-            '/vps/pool/pools'), 'settings');
-        $acl->add(new Zend_Acl_Resource('vps_pool_pool'), 'vps_pool_pools');
-
 
 $acl->allow('admin', null);
 $acl->allow('superuser', 'settings');
