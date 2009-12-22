@@ -133,7 +133,7 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
         $this->_systemCheckRet($cmd);
 
         copy("/www/public/vps-projekte/template/application/include_path", "/www/public/vps-projekte/$id/application/include_path");
-        copy("application/update", "/www/public/vps-projekte/$id/application/include_path");
+        copy("application/update", "/www/public/vps-projekte/$id/application/update");
         $cfg = file_get_contents("/www/public/vps-projekte/template/application/config.db.ini");
         $cfg = str_replace('template', $id, $cfg);
         file_put_contents("/www/public/vps-projekte/$id/application/config.db.ini", $cfg);
