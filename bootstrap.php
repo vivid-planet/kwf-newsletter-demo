@@ -1,7 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
 if (file_exists('application/include_path')) {
-    define('VPS_PATH', str_replace('%vps_branch%', file_get_contents('application/vps_branch'), trim(file_get_contents('application/include_path'))));
+    define('VPS_PATH', str_replace('%vps_branch%', trim(file_get_contents('application/vps_branch')), trim(file_get_contents('application/include_path'))));
 } else {
     die ('VPS_PATH not found');
 }
