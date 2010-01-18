@@ -13,7 +13,7 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
                 'param'=> 'id',
                 'value'=>'id',
                 'allowBlank' => true,
-                'help' => 'unique appliaction id'
+                'help' => '(optional) unique appliaction id'
             ),
             array(
                 'param'=> 'className',
