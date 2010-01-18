@@ -12,7 +12,7 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
             array(
                 'param'=> 'id',
                 'value'=>'id',
-                'allowBlank' => false,
+                'allowBlank' => true,
                 'help' => 'unique appliaction id'
             ),
             array(
@@ -36,10 +36,6 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
 
     public function indexAction()
     {
-        $id = $this->_getParam('id');
-        if (!preg_match('#^[a-z0-9-]+$#', $id)) {
-            throw new Vps_ClientException("Invalid id");
-        }
 
         $name = $this->_getParam('name');
 
@@ -50,7 +46,11 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
         if (!preg_match('#^[a-zA-Z0-9]+$#', $className)) {
             throw new Vps_ClientException("Invalid className");
         }
-        
+        $id = $this->_getParam('id');
+        if (!$id) {
+            $id = strtolower($name);
+        }
+        $id = preg_replace('#[^a-z0-9]#i', '', $id);
 
         echo "id: $id\n";
         echo "className: $className (Vps_$className)\n";
