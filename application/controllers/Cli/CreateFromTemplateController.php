@@ -65,15 +65,44 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
 
         $debug = $this->_getParam('debug');
 
+        $svnUrl = "http://svn/trunk/vps-projekte/$id";
+
         $webs = explode("\n", `svn ls http://svn/trunk/vps-projekte`);
         if (in_array($id.'/', $webs)) {
-            throw new Vps_ClientException("Web $id exists already in svn");
+            echo "Web $id exists already in svn ($svnUrl)\n";
+            echo "Delete the existing web? [N/y]";
+            $stdin = fopen('php://stdin', 'r');
+            $input = trim(strtolower(fgets($stdin, 2)));
+            fclose($stdin);
+            if (!($input == 'j' || $input == 'y')) {
+                exit;
+            }
+            $cmd = "svn rm $svnUrl -m \"geloescht, neues web von template wird erstellt\"";
+            if ($debug) echo "$cmd\n";
+            $this->_systemCheckRet($cmd);
         }
+
+
+        $cmd = "echo \"SHOW DATABASES\" | mysql";
+        if ($debug) echo "$cmd\n";
+        exec($cmd, $databases);
+        if (in_array($id, $databases)) {
+            echo "Database $id exists already\n";
+            echo "Delete the existing database? [N/y]";
+            $stdin = fopen('php://stdin', 'r');
+            $input = trim(strtolower(fgets($stdin, 2)));
+            fclose($stdin);
+            if (!($input == 'j' || $input == 'y')) {
+                exit;
+            }
+            $cmd = "echo \"DROP DATABASE $id\" | mysql";
+            if ($debug) echo "$cmd\n";
+            $this->_systemCheckRet($cmd);
+        }
+
 
         $info = new SimpleXMLElement(`svn info --xml`);
         $sourceSvnUrl = (string)$info->entry->url;
-        $svnUrl = "http://svn/trunk/vps-projekte/$id";
-
 
         $cmd = "svn cp $sourceSvnUrl $svnUrl -m \"Neues Web von Template erstellt\"";
         if ($debug) echo "$cmd\n";
