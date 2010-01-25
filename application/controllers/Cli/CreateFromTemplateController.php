@@ -171,6 +171,9 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
+        $cmd = "cd /www/public/vps-projekte/$id && php bootstrap.php create-users";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
 
         //uploads von template kopieren
         $cfg = new Vps_Config_Web('vivid', array('webPath' => "/www/public/vps-projekte/$id"));
