@@ -1,9 +1,9 @@
-<?= $this->doctype('XHTML1_STRICT') ?>
+<?=$this->doctype('XHTML1_STRICT');?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <?=$this->component($this->boxes['title'])?>
-        <?= $this->assets('Frontend') ?>
-        <?= $this->debugData() ?>
+        <?=$this->component($this->boxes['title']);?>
+        <?=$this->assets('Frontend');?>
+        <?=$this->debugData();?>
         <link rel="shortcut icon" href="/assets/web/images/favicon.ico" /> 
     </head>
     <body class="frontend">
@@ -24,10 +24,10 @@
             </div>
             <div id="outerFooter">
                 <div id="footer">
-                    <?= $this->component($this->boxes['bottomMenu']) ?>
+                    <?=$this->component($this->boxes['bottomMenu']);?>
                 </div>
             </div>
         </div>
-        <?= $this->statisticCode() ?>
+        <?=$this->statisticCode();?>
     </body>
 </html>
