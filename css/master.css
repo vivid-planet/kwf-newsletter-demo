@@ -1,5 +1,6 @@
 .webStandard { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 11px; }
 .webStandard strong { font-weight: bold; }
+.webStandard em { font-style: italic; }
 
 .webStandard p { line-height: 18px; color: $typo; margin-bottom: 10px; }
 
