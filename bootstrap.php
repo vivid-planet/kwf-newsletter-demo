@@ -18,14 +18,7 @@ Vps_Assets_Loader::load();
 
 $front = Vps_Controller_Front_Component::getInstance();
 
-$acl = new Vps_Acl_Component();
-
-$acl->add(new Vps_Acl_Resource_MenuDropdown('settings',
-            array('text'=>trl('Einstellungen'), 'icon'=>'wrench.png')));
-    $acl->add(new Vps_Acl_Resource_MenuUrl('vps_user_users',
-            array('text'=>trl('Benutzerverwaltung'), 'icon'=>'user.png'),
-            '/vps/user/users'), 'settings');
-        $acl->add(new Zend_Acl_Resource('vps_user_user'), 'vps_user_users');
+$acl = new Vps_Acl_Component_IsiWeb();
 
 $acl->allow('admin', null);
 $acl->allow('superuser', 'settings');
