@@ -5,6 +5,7 @@ body.ext-ie6 { text-align: center; }
 #page #outerContent #content,
 #page #outerFooter #footer { width: 900px; margin: 0px auto; text-align: left; }
 
+.webListNone ul { margin-left: 0px; }
 .webListNone,
 .webListNone li { margin-bottom: 0px; }
 
