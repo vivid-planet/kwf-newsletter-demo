@@ -18,7 +18,7 @@
                 <div id="content">
                     <div id="innerContent">
                         <?=$this->component($this->boxes['subMenu']);?>
-                        <?=$this->component($this->component);?>
+                        <?=$this->component($this->data);?>
                     </div>
                 </div>
             </div>
