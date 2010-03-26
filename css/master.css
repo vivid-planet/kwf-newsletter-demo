@@ -10,7 +10,7 @@
 .webStandard h4 { font-size: 12px; margin-bottom: 5px; color: var(mainColor); } /* Überschrift 4 */
 .webStandard h5 { font-size: 11px; margin-bottom: 5px; color: var(mainColor); } /* Überschrift 5 */
 
-.webStandard a { text-decoration: none; color: var(mainColor); }
+.webStandard a { text-decoration: none; color: var(mainColor); outline: none; }
 .webStandard a:hover { text-decoration: none; color: var(secColor); }
 
 .webStandard ol,
