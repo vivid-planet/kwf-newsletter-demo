@@ -1,0 +1,7 @@
+querylog
+benchmark.rrd
+*.kdev4
+.project
+.buildpath
+.settings
+vps-lib
