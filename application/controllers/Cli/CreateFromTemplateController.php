@@ -64,30 +64,82 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
         }
 
         $debug = $this->_getParam('debug');
+        $templatePath = getcwd();
+        $dbCfg = Vps_Registry::get('dao')->getDbConfig(); //holen bevor ordner gewechselt wird
 
-        $svnUrl = "http://svn/trunk/vps-projekte/$id";
 
-        $webs = explode("\n", `svn ls http://svn/trunk/vps-projekte`);
-        if (in_array($id.'/', $webs)) {
-            echo "Web $id exists already in svn ($svnUrl)\n";
-            echo "Delete the existing web? [N/y]";
-            $stdin = fopen('php://stdin', 'r');
-            $input = trim(strtolower(fgets($stdin, 2)));
-            fclose($stdin);
-            if (!($input == 'j' || $input == 'y')) {
-                exit;
-            }
-            $cmd = "svn rm $svnUrl -m \"geloescht, neues web von template wird erstellt\"";
-            if ($debug) echo "$cmd\n";
-            $this->_systemCheckRet($cmd);
+        $cmd = "ssh git.vivid-planet.com -C 'bash -c \"if [ -d /git/$id ]; then exit 1; else exit 0; fi\"'";
+        $ret = null;
+        system($cmd, $ret);
+        if ($ret == 1) {
+            echo "Web $id exists already in git.vivid-planet.com/git/$id\n";
+            exit;
         }
 
+        if (file_exists('../'.$id)) {
+            echo "Working Copy for Web exists already at ../$id\n";
+            exit;
+        }
+
+        $cmd = "ssh git.vivid-planet.com -C 'cp -r /git/template /git/$id'";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $tmp = tempnam('/tmp', 'cft');
+        unlink($tmp);
+        $cmd = "git clone ssh://git.vivid-planet.com/git/$id ../$id";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+        chdir("../$id");
+
+        $cmd = "git rm -r application/controllers/Cli";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $cmd = "git mv Vps/Template Vps/$className";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $cmd = "git mv Vpc/Template Vpc/$className";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $cmd = "find . -name '*.php' | xargs perl -p -i -e 's/Vps_Template_/Vps_{$className}_/g'";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $cmd = "find . -name '*.php' | xargs perl -p -i -e 's/Vpc_Template_/Vpc_{$className}_/g'";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        $cfg = file_get_contents('application/config.ini');
+        $cfg = str_replace('template', $id, $cfg);
+        $cfg = str_replace('Vps_Template_', "Vps_{$className}_", $cfg);
+        $cfg = str_replace('Vpc_Template_', "Vpc_{$className}_", $cfg);
+        $cfg = str_replace('Vps Template', $name, $cfg);
+        file_put_contents('application/config.ini', $cfg);
+
+        $cmd = "git commit -am \"Template fuer neues Web angepasst\"";
+        if ($debug) echo "$cmd\n";
+        $this->_systemCheckRet($cmd);
+
+        if (file_exists($templatePath."/application/include_path")) {
+            copy($templatePath."/application/include_path", "application/include_path");
+        }
+        if (file_exists($templatePath."/application/update")) {
+            copy($templatePath."/application/update", "application/update");
+        }
+        $cfg = file_get_contents($templatePath."/application/config.db.ini");
+        $cfg = str_replace('template', $id, $cfg);
+        file_put_contents("application/config.db.ini", $cfg);
+        $newDbConfig = new Zend_Config_Ini('application/config.db.ini', 'database');
+        $newDbConfig = $newDbConfig->web->toArray();
 
         $cmd = "echo \"SHOW DATABASES\" | mysql";
         if ($debug) echo "$cmd\n";
         exec($cmd, $databases);
-        if (in_array($id, $databases)) {
-            echo "Database $id exists already\n";
+        if (in_array($newDbConfig['dbname'], $databases)) {
+            echo "Database $newDbConfig[dbname] exists already\n";
             echo "Delete the existing database? [N/y]";
             $stdin = fopen('php://stdin', 'r');
             $input = trim(strtolower(fgets($stdin, 2)));
@@ -95,103 +147,30 @@ class Cli_CreateFromTemplateController extends Vps_Controller_Action_Cli_Abstrac
             if (!($input == 'j' || $input == 'y')) {
                 exit;
             }
-            $cmd = "echo \"DROP DATABASE $id\" | mysql";
+            $cmd = "echo \"DROP DATABASE $newDbConfig[dbname]\" | mysql";
             if ($debug) echo "$cmd\n";
             $this->_systemCheckRet($cmd);
         }
 
-
-        $info = new SimpleXMLElement(`svn info --xml`);
-        $sourceSvnUrl = (string)$info->entry->url;
-
-        $cmd = "svn cp $sourceSvnUrl $svnUrl -m \"Neues Web von Template erstellt\"";
+        $cmd = "echo \"CREATE DATABASE $newDbConfig[dbname]\" | mysql";
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
-        $tmp = tempnam('/tmp', 'cft');
-        unlink($tmp);
-        $cmd = "svn co $svnUrl $tmp";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "svn rm $tmp/application/controllers/Cli";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "svn mv $tmp/Vps/Template $tmp/Vps/$className";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "svn mv $tmp/Vpc/Template $tmp/Vpc/$className";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "find $tmp -name '*.php' | xargs perl -p -i -e 's/Vps_Template_/Vps_{$className}_/g'";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "find $tmp -name '*.php' | xargs perl -p -i -e 's/Vpc_Template_/Vpc_{$className}_/g'";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cfg = file_get_contents($tmp.'/application/config.ini');
-        $cfg = str_replace('template', $id, $cfg);
-        $cfg = str_replace('Vps_Template_', "Vps_{$className}_", $cfg);
-        $cfg = str_replace('Vpc_Template_', "Vpc_{$className}_", $cfg);
-        $cfg = str_replace('Vps Template', $name, $cfg);
-        file_put_contents($tmp.'/application/config.ini', $cfg);
-
-        $cmd = "svn ci $tmp -m \"Template für neues Web angepasst\"";
+        $cmd = "mysqldump $dbCfg[dbname] | mysql $newDbConfig[dbname]";
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
 
-        $cmd = "echo \"CREATE DATABASE $id\" | mysql";
+        $cmd = "php bootstrap.php update";
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
-        $cfg = Vps_Registry::get('dao')->getDbConfig();
-        $cmd = "mysqldump $cfg[dbname] | mysql $id";
+        $cmd = "php bootstrap.php create-users";
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
-
-        //checkout in public
-        $cmd = "svn up /www/public/vps-projekte/$id";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        copy("/www/public/vps-projekte/template/application/include_path", "/www/public/vps-projekte/$id/application/include_path");
-        copy("application/update", "/www/public/vps-projekte/$id/application/update");
-        $cfg = file_get_contents("/www/public/vps-projekte/template/application/config.db.ini");
-        $cfg = str_replace('template', $id, $cfg);
-        file_put_contents("/www/public/vps-projekte/$id/application/config.db.ini", $cfg);
-
-        $cmd = "cd /www/public/vps-projekte/$id && php bootstrap.php update";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        $cmd = "cd /www/public/vps-projekte/$id && php bootstrap.php create-users";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        //uploads von template kopieren
-        $cfg = new Vps_Config_Web('vivid', array('webPath' => "/www/public/vps-projekte/$id"));
+        $cfg = new Vps_Config_Web(Vps_Setup::getConfigSection(), array('webPath' => getcwd()));
         $cmd = "cp -r ".Vps_Registry::get('config')->uploads." $cfg->uploads";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        //checkout bei user
-        $cmd = "svn co $svnUrl ../$id";
-        if ($debug) echo "$cmd\n";
-        $this->_systemCheckRet($cmd);
-
-        copy("application/include_path", "../$id/application/include_path");
-        $cfg = file_get_contents("application/config.db.ini");
-        $cfg = str_replace('template', $id, $cfg);
-        file_put_contents("../$id/application/config.db.ini", $cfg);
-
-        $cmd = "cd ../$id && php bootstrap.php import --server=vivid";
         if ($debug) echo "$cmd\n";
         $this->_systemCheckRet($cmd);
 
