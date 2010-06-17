@@ -19,9 +19,6 @@ Vps_Assets_Loader::load();
 $front = Vps_Controller_Front_Component::getInstance();
 
 $acl = new Vps_Acl_Component_IsiWeb();
-
-$acl->allow('admin', null);
-$acl->allow('superuser', 'settings');
 Zend_Registry::set('acl', $acl);
 
 $response = $front->dispatch();
