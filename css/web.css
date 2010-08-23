@@ -13,6 +13,7 @@ body.ext-ie6 { text-align: center; }
 
 .webForm input,
 .webForm textarea,
+.webForm label,
 .webForm button {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
     font-size: 11px;
