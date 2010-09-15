@@ -18,8 +18,7 @@ Vps_Assets_Loader::load();
 
 $front = Vps_Controller_Front_Component::getInstance();
 
-$acl = new Vps_Acl_Component_IsiWeb();
-Zend_Registry::set('acl', $acl);
+// acl ist in Vps_Template_Acl und in config ist die aclClass gesetzt
 
 $response = $front->dispatch();
 $response->sendResponse();
