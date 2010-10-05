@@ -35,7 +35,13 @@ class Vpc_FeedCreator_List_Gallery_Component extends Vpc_List_Gallery_Component
                 'imagesPerLine' => 4
             ),
             '5fullWidth'=>array(
-                'text' => trl('
+                'text' => trl('Fünf Bilder, volle Breite'),
+                'width' => floor(($contentWidth - 40) / 5),
+                'height' => floor(($contentWidth - 40) / 5),
+                'scale' => Vps_Media_Image::SCALE_CROP,
+                'imagesPerLine' => 5
+            )
+        );
         return $ret;
     }
 }
