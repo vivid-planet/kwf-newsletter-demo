@@ -1,4 +1,4 @@
-.webStandard { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 11px; }
+.webStandard { font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 11px; color: var(typo); }
 .webStandard strong { font-weight: bold; }
 .webStandard em { font-style: italic; }
 
@@ -15,6 +15,6 @@
 .webStandard a:link { text-decoration: none; }
 
 .webStandard ol,
-.webStandard ul { margin-bottom: 10px; margin-left: 20px; color: var(typo); line-height: 17px; }
-.webStandard li { list-style-type: square; margin-bottom: 5px; }
+.webStandard ul { margin-bottom: 10px; margin-left: 20px; line-height: 18px; }
+.webStandard li { list-style-type: square; margin-bottom: 5px; color: var(typo); }
 

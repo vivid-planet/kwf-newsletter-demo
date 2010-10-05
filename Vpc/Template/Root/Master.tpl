@@ -13,10 +13,10 @@
                 <div id="header">&nbsp;</div>
             </div>
             <div id="outerContent">
-                <div id="mainMenu">
-                    <?=$this->component($this->boxes['mainMenu']);?>
-                </div>
                 <div id="content">
+                    <div id="mainMenu">
+                        <?=$this->component($this->boxes['mainMenu']);?>
+                    </div>
                     <div id="innerContent">
                         <?=$this->component($this->boxes['subMenu']);?>
                         <?=$this->component($this->data);?>

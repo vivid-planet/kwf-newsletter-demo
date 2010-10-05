@@ -1,11 +1,10 @@
 body.ext-ie6 { text-align: center; }
 
 #page #outerHeader #header,
-#page #outerContent #mainMenu,
 #page #outerContent #content,
 #page #outerFooter #footer { width: 900px; margin: 0px auto; text-align: left; }
 
-.webListNone ul { margin-left: 0px; }
+.webListNone ul { margin: 0px; }
 .webListNone,
 .webListNone li { margin-bottom: 0px; }
 
@@ -14,7 +13,10 @@ body.ext-ie6 { text-align: center; }
 .webForm input,
 .webForm textarea,
 .webForm label,
-.webForm button {
+.webForm button,
+.webForm select {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
     font-size: 11px;
+    color: var(typo);
+    line-height: 18px;
 }

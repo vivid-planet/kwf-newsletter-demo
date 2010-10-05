@@ -13,7 +13,7 @@
             </div>
             <div id="outerContent">
                 <div id="content">
-                    <div id="innerContent">
+                    <div class="webStandard" id="innerContent">
                         <p><strong><?=trlVps('Errormessage');?></strong></p>
                         <h2>404 - <?=trlVps('File not found');?></h2>
                         <p><?=trlVps('The requested URL "{0}" was not found on this server.', $this->requestUri);?></p>
