@@ -1,5 +1,5 @@
 <?php
-class Vpc_Template_Menu_Main_Component extends Vpc_Menu_Component
+class Vpc_FeedCreator_Menu_Main_Component extends Vpc_Menu_Component
 {
     public static function getSettings()
     {
@@ -10,7 +10,7 @@ class Vpc_Template_Menu_Main_Component extends Vpc_Menu_Component
         
         $ret['generators']['subMenu'] = array(
             'class' => 'Vpc_Menu_Generator',
-            'component' => 'Vpc_Template_Menu_Sub_Component'
+            'component' => 'Vpc_FeedCreator_Menu_Sub_Component'
         );
         
         return $ret;

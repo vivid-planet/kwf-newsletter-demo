@@ -1,5 +1,5 @@
 <?php
-class Vpc_Template_Menu_Sub_Component extends Vpc_Menu_Component
+class Vpc_FeedCreator_Menu_Sub_Component extends Vpc_Menu_Component
 {
     public static function getSettings()
     {

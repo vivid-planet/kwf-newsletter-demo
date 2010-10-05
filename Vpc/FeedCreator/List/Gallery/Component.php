@@ -1,5 +1,5 @@
 <?php
-class Vpc_Template_List_Gallery_Component extends Vpc_List_Gallery_Component
+class Vpc_FeedCreator_List_Gallery_Component extends Vpc_List_Gallery_Component
 {
     public static function getSettings()
     {

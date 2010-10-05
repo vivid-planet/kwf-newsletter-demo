@@ -1,5 +1,5 @@
 <?php
-class Vpc_Template_Contact_FrontendForm extends Vps_Form
+class Vpc_FeedCreator_Contact_FrontendForm extends Vps_Form
 {
     protected function _beforeSave(Vps_Model_Row_Interface $row)
     {
