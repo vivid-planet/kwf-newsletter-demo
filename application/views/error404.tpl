@@ -12,7 +12,7 @@
                 <div id="header">
                     <div class="left" id="logo">
                         <a href="/">
-                            <img src="/assets/web/images/logo.jpg" alt="FeedCreator" />
+                            <img src="/assets/web/images/logo.jpg" alt="RegioTool" />
                         </a>
                     </div>
                     <div class="right" id="login">&nbsp;</div>

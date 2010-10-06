@@ -1,4 +1,0 @@
-<?php
-class Vpc_FeedCreator_User_LostPassword_Component extends Vpc_User_LostPassword_Component
-{
-}

@@ -1,6 +1,0 @@
-.cssClass { margin: 10px 0px; }
-.cssClass li { float: left; font-size: 11px; margin-left: 10px; color: var(light) !important; }
-.cssClass li a { font-size: 10px; font-weight: bold; color: var(light) !important; }
-.cssClass li a:hover { color: var(secColor) !important; }
-.cssClass li.mail { margin: 3px 0px; }
-.cssClass li .button { padding: 4px; }

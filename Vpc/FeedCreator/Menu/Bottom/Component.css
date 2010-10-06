@@ -1,8 +1,0 @@
-.cssClass li { float: left; }
-.cssClass li a {
-    display: block;
-    font-weight: bold;
-    color: var(darkGray);
-    padding: 25px 15px;
-}
-.cssClass li.current a { color: var(mainColor); }

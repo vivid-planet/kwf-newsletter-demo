@@ -14,10 +14,12 @@ body.frontend { background: var(lightGray); }
 
 #page #outerContent { background: var(light); }
 #page #outerContent #content { padding: 35px 0px 25px 0px; }
-#page #outerContent #content #subMenu { width: 140px; margin-right: 20px; }
-#page #outerContent #content .withSub { width: 620px; }
+#page #outerContent #content #subMenu { width: 180px; margin-right: 25px; }
+#page #outerContent #content #innerContent { width: 780px; }
+#page #outerContent #content .withSub { width: 575px !important; }
 
 #page #outerFooter { border-top: 4px solid var(gray); }
+#page #outerFooter #footer { padding: 15px; text-align: center; }
 
 .webListNone ul { margin: 0px; }
 .webListNone,
@@ -30,7 +32,7 @@ body.frontend { background: var(lightGray); }
 .webForm label,
 .webForm button,
 .webForm select {
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, Verdana, Geneva, sans-serif;
     font-size: 12px;
     color: var(typo);
     line-height: 18px;
@@ -38,7 +40,7 @@ body.frontend { background: var(lightGray); }
 
 .webForm .submitWrapper { margin: 10px 0px 10px 140px; }
 .webForm button { color: var(light); background: none !important; border: none !important; }
-.webForm button:hover { color: var(secColor); }
+.webForm button:hover { color: var(mainColor); }
 
 .webForm .beforeButton,
 .webForm .afterButton {

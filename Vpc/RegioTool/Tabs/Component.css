@@ -1,0 +1,31 @@
+.cssClass .vpsTabsLinks .vpsTabsLink { padding: 0px; background: none; border: none; }
+.cssClass .vpsTabsLinks .vpsTabsLink .beforeTab,
+.cssClass .vpsTabsLinks .vpsTabsLink .tab,
+.cssClass .vpsTabsLinks .vpsTabsLink .afterTab {
+    float: left;
+    width: 5px;
+    height: 21px;
+    font-weight: bold;
+    margin-bottom: -4px;
+    color: var(light);
+    background: url('/assets/web/images/tabsLinkLeftBg.png') no-repeat top right;
+    cursor: pointer;
+}
+.cssClass .vpsTabsLinks .vpsTabsLink .tab {
+    width: auto;
+    padding: 4px 4px 0px 4px;
+    background: url('/assets/web/images/tabsLinkCenterBg.png') repeat-x top left;
+}
+.cssClass .vpsTabsLinks .vpsTabsLink .afterTab {
+    background: url('/assets/web/images/tabsLinkRightBg.png') no-repeat top left;
+}
+.cssClass .vpsTabsLinks .vpsTabsLinkActive .beforeTab {
+    background: url('/assets/web/images/tabsLinkLeftActiveBg.png') no-repeat top right;
+}
+.cssClass .vpsTabsLinks .vpsTabsLinkActive .tab {
+    background: url('/assets/web/images/tabsLinkCenterActiveBg.png') repeat-x top left;
+}
+.cssClass .vpsTabsLinks .vpsTabsLinkActive .afterTab {
+    background: url('/assets/web/images/tabsLinkRightActiveBg.png') no-repeat top left;
+}
+.cssClass .vpsTabsContent { border-color: var(secColor); }
