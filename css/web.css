@@ -1,8 +1,23 @@
 body.ext-ie6 { text-align: center; }
 
+body.frontend { background: var(lightGray); }
+
 #page #outerHeader #header,
 #page #outerContent #content,
-#page #outerFooter #footer { width: 900px; margin: 0px auto; text-align: left; }
+#page #outerFooter #footer { width: 780px; margin: 0px auto; text-align: left; }
+
+#page #outerHeader {
+    background: url('/assets/web/images/headerRepeatBg.jpg') repeat-x top left;
+}
+#page #outerHeader #header { position: relative; height: 188px; }
+#page #outerHeader #header #mainMenu { position: absolute; bottom: 0px; }
+
+#page #outerContent { background: var(light); }
+#page #outerContent #content { padding: 35px 0px 25px 0px; }
+#page #outerContent #content #subMenu { width: 140px; margin-right: 20px; }
+#page #outerContent #content .withSub { width: 620px; }
+
+#page #outerFooter { border-top: 4px solid var(gray); }
 
 .webListNone ul { margin: 0px; }
 .webListNone,
@@ -16,7 +31,28 @@ body.ext-ie6 { text-align: center; }
 .webForm button,
 .webForm select {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     color: var(typo);
     line-height: 18px;
+}
+
+.webForm .submitWrapper { margin: 10px 0px 10px 140px; }
+.webForm button { color: var(light); background: none !important; border: none !important; }
+.webForm button:hover { color: var(secColor); }
+
+.webForm .beforeButton,
+.webForm .afterButton {
+    display: block;
+    float: left;
+    width: 4px;
+    height: 27px;
+    background: url('/assets/web/images/webFormButtonLeft.png') no-repeat top right;
+}
+.webForm .button {
+    float: left;
+    height: 27px;
+    background: url('/assets/web/images/webFormButtonCenter.png') repeat-x top left;
+}
+.webForm .afterButton {
+    background: url('/assets/web/images/webFormButtonRight.png') no-repeat top left;
 }

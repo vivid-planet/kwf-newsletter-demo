@@ -1,0 +1,8 @@
+.cssClass .entry h2,
+.cssClass .entry h2 a { margin-bottom: 5px; color: var(mainColor); }
+.cssClass .entry .publishDate {
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: var(gray);
+}
+.cssClass .entry .readMore { border: none; }

@@ -1,0 +1,6 @@
+.cssClass h1 { margin-bottom: 5px !important; }
+.cssClass .publishDate {
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: var(gray);
+}

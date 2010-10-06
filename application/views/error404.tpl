@@ -9,7 +9,16 @@
     <body class="frontend">
         <div id="page">
             <div id="outerHeader">
-                <div id="header">&nbsp;</div>
+                <div id="header">
+                    <div class="left" id="logo">
+                        <a href="/">
+                            <img src="/assets/web/images/logo.jpg" alt="FeedCreator" />
+                        </a>
+                    </div>
+                    <div class="right" id="login">&nbsp;</div>
+                    <div class="clear"></div>
+                    <div id="mainMenu">&nbsp;</div>
+                </div>
             </div>
             <div id="outerContent">
                 <div id="content">

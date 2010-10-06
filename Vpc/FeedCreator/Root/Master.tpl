@@ -10,17 +10,31 @@
     <body class="frontend">
         <div id="page">
             <div id="outerHeader">
-                <div id="header">&nbsp;</div>
-            </div>
-            <div id="outerContent">
-                <div id="content">
+                <div id="header">
+                    <div class="left" id="logo">
+                        <a href="/">
+                            <img src="/assets/web/images/logo.jpg" alt="FeedCreator" />
+                        </a>
+                    </div>
+                    <div class="right" id="login">
+                        <?=$this->component($this->boxes['userBox']);?>
+                    </div>
+                    <div class="clear"></div>
                     <div id="mainMenu">
                         <?=$this->component($this->boxes['mainMenu']);?>
                     </div>
-                    <div id="innerContent">
+                </div>
+            </div>
+            <div id="outerContent">
+                <div id="content">
+                    <div class="left" id="subMenu">
                         <?=$this->component($this->boxes['subMenu']);?>
+                        <?=$this->component($this->boxes['blogCategories']);?>
+                    </div>
+                    <div class="left<?=$this->ifHasContent($this->boxes['subMenu']);?> withSub<?=$this->ifHasContent();?><?=$this->ifHasContent($this->boxes['blogCategories']);?> withSub<?=$this->ifHasContent();?>" id="innerContent">
                         <?=$this->component($this->data);?>
                     </div>
+                    <div class="clear"></div>
                 </div>
             </div>
             <div id="outerFooter">
