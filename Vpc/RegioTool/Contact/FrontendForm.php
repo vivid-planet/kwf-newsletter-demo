@@ -24,7 +24,7 @@ class Vpc_RegioTool_Contact_FrontendForm extends Vps_Form
         $this->add(new Vps_Form_Field_TextField('lastname', trlVpsStatic('Lastname')))
             ->setWidth(255)
             ->setAllowBlank(false);
-        $this->add(new Vps_Form_Field_TextField('company', trlVpsStatic('Company')))
+        $this->add(new Vps_Form_Field_TextField('organisation', trlVpsStatic('Organisation')))
             ->setWidth(255);
         $this->add(new Vps_Form_Field_TextField('street', trlVpsStatic('Street')))
             ->setWidth(255);

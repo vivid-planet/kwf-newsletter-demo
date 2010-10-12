@@ -11,7 +11,7 @@
 
 <?=trlVps('Email');?>: <?= $this->email; ?>
 
-<?=trlVps('Company');?>: <?= $this->company; ?>
+<?=trlVps('Organisation');?>: <?= $this->organisation; ?>
 
 <?=trlVps('Street');?>: <?= $this->street; ?>
 
