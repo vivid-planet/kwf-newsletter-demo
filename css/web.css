@@ -20,12 +20,11 @@ body.frontend { background: var(lightGray); }
 
 #page #outerFooter { border-top: 4px solid var(gray); }
 #page #outerFooter #footer { padding: 15px; text-align: center; }
+#page #outerFooter #footer p { margin-bottom: 0px; color: var(darkGray); }
 
 .webListNone ul { margin: 0px; }
 .webListNone,
 .webListNone li { margin-bottom: 0px; }
-
-.webSuccess { font-weight: bold; }
 
 .webForm input,
 .webForm textarea,
@@ -38,6 +37,7 @@ body.frontend { background: var(lightGray); }
     line-height: 18px;
 }
 
+.webForm label { text-align: left; }
 .webForm .submitWrapper { margin: 10px 0px 10px 140px; }
 .webForm button { color: var(light); background: none !important; border: none !important; }
 .webForm button:hover { color: var(mainColor); }
