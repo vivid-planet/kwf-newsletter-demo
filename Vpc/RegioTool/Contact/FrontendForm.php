@@ -9,7 +9,7 @@ class Vpc_RegioTool_Contact_FrontendForm extends Vps_Form
             $host = Vps_Registry::get('config')->server->domain;
         }
 
-        $row->addTo('christoph@vivid.vps');
+        $row->addTo('rf@vivid-planet.com');
         $row->setFrom($row->email);
         $row->subject = trl('Anfrage auf {0}',$host);
     }
