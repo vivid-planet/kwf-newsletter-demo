@@ -13,7 +13,12 @@
                 <div id="header">
                     <div class="left" id="logo">
                         <a href="/">
-                            <img src="/assets/web/images/logo.png" alt="RegioTool" />
+                            <?=$this->image('/assets/web/images/logo.png','RegioTool');?>
+                        </a>
+                    </div>
+                    <div class="right" id="cityTool">
+                        <a href="/citytool">
+                            <?=$this->image('/assets/web/images/cityToolBanner.png','CityTool');?>
                         </a>
                     </div>
                     <div class="clear"></div>
