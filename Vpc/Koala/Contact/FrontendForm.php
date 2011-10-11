@@ -1,5 +1,5 @@
 <?php
-class Vpc_RegioTool_Contact_FrontendForm extends Vps_Form
+class Vpc_Koala_Contact_FrontendForm extends Vps_Form
 {
     protected function _beforeSave(Vps_Model_Row_Interface $row)
     {
@@ -9,7 +9,7 @@ class Vpc_RegioTool_Contact_FrontendForm extends Vps_Form
             $host = Vps_Registry::get('config')->server->domain;
         }
 
-        $row->addTo('rf@vivid-planet.com');
+        $row->addTo('office@vivid-planet.com');
         $row->setFrom($row->email);
         $row->subject = trl('Anfrage auf {0}',$host);
     }

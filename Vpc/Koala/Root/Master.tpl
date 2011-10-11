@@ -29,12 +29,12 @@
             </div>
             <div id="outerContent">
                 <div id="content">
-                    <?=$this->ifHasContent($this->boxes['subMenu']);?>
+                    <?if ($this->hasContent($this->boxes['subMenu'])) {?>
                         <div class="left" id="subMenu">
                             <?=$this->component($this->boxes['subMenu']);?>
                         </div>
-                    <?=$this->ifHasContent();?>
-                    <div class="left<?=$this->ifHasContent($this->boxes['subMenu']);?> withSub<?=$this->ifHasContent();?>" id="innerContent">
+                    <?}?>
+                    <div class="left<?if ($this->hasContent($this->boxes['subMenu'])) {?> withSub<?}?>" id="innerContent">
                         <?=$this->component($this->data);?>
                     </div>
                     <div class="clear"></div>

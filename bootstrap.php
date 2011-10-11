@@ -18,7 +18,7 @@ Vps_Assets_Loader::load();
 
 $front = Vps_Controller_Front_Component::getInstance();
 
-// acl ist in Vps_RegioTool_Acl und in config ist die aclClass gesetzt
+// acl ist in Vps_Koala_Acl und in config ist die aclClass gesetzt
 
 $response = $front->dispatch();
 $response->sendResponse();

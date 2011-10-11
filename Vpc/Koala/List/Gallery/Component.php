@@ -1,5 +1,5 @@
 <?php
-class Vpc_RegioTool_List_Gallery_Component extends Vpc_List_Gallery_Component
+class Vpc_Koala_List_Gallery_Component extends Vpc_List_Gallery_Component
 {
     public static function getSettings()
     {

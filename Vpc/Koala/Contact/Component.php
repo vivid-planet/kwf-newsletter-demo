@@ -1,5 +1,5 @@
 <?php
-class Vpc_RegioTool_Contact_Component extends Vpc_Form_Component
+class Vpc_Koala_Contact_Component extends Vpc_Form_Component
 {
     public static function getSettings()
     {

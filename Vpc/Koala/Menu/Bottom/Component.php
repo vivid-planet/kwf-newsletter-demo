@@ -1,5 +1,5 @@
 <?php
-class Vpc_RegioTool_Menu_Bottom_Component extends Vpc_Menu_Component
+class Vpc_Koala_Menu_Bottom_Component extends Vpc_Menu_Component
 {
     public static function getSettings()
     {
