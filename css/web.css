@@ -7,9 +7,16 @@ body.frontend { background: var(lightGray); }
 #page #outerFooter #footer { width: 780px; margin: 0px auto; text-align: left; }
 
 #page #outerHeader {
-    background: url('/assets/web/images/headerRepeatBg.jpg') repeat-x top left;
+    background: url('/assets/web/images/headBg.jpg') repeat-x top left;
 }
-#page #outerHeader #header { position: relative; height: 188px; }
+#page #outerHeader #header { position: relative; height: 169px; background: url('/assets/web/images/headLight.png') no-repeat; }
+#page #outerHeader #slogan {
+    position: relative;
+    font-weight: bold; padding-top: 40px; left: 50px;
+    text-shadow: #c0c0c0 3px 3px 5px;
+}
+#page #outerHeader #slogan .smart,
+#page #outerHeader #slogan .rich { color: var(mainColor); background-color: #f1f1f1; padding: 5px; border-radius: 5px; }
 #page #outerHeader #header #mainMenu { position: absolute; bottom: 0px; }
 
 #page #outerContent { background: var(light); }
@@ -18,9 +25,14 @@ body.frontend { background: var(lightGray); }
 #page #outerContent #content #innerContent { width: 780px; }
 #page #outerContent #content .withSub { width: 575px !important; }
 
-#page #outerFooter { border-top: 4px solid var(gray); }
-#page #outerFooter #footer { padding: 15px; text-align: center; }
+#page #outerFooter { background: url('/assets/web/images/footerBg.jpg') repeat-x top left; }
+#page #outerFooter #footer { padding: 15px; height: 60px; position: relative; }
 #page #outerFooter #footer p { margin-bottom: 0px; color: var(darkGray); }
+#page #outerFooter #footer .menu { position: absolute; left: 0; width: 300px; top: 10px; }
+#page #outerFooter #footer .vivid { position: absolute; left: 10px; top: 60px; }
+#page #outerFooter #footer .based {
+    position: absolute; right: 0; width: 400px; font-weight: bold;
+}
 
 .webListNone ul { margin: 0px; }
 .webListNone,

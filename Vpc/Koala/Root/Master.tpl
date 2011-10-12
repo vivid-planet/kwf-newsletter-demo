@@ -16,10 +16,8 @@
                             <?=$this->image('/assets/web/images/logo.png','RegioTool');?>
                         </a>
                     </div>
-                    <div class="right" id="cityTool">
-                        <a href="/citytool">
-                            <?=$this->image('/assets/web/images/cityToolBanner.png','CityTool');?>
-                        </a>
+                    <div id="slogan" class="webStandard">
+                        The open source framework for <span class="rich">rich websites</span> and <span class="smart">smart backends</span>
                     </div>
                     <div class="clear"></div>
                     <div id="mainMenu">
@@ -42,11 +40,27 @@
             </div>
             <div id="outerFooter">
                 <div id="footer" class="webStandard">
-                    <?=$this->component($this->boxes['bottomMenu']);?>
-                    <p><strong>RegioTool</strong> ist ein Produkt der Vivid Planet Software GmbH</p>
-                    <a href="http://www.vivid-planet.com" title="Vivid Planet Software GmbH" rel="popup_blank">
-                        <img src="/assets/web/images/vividPlanetDark.png" alt="Vivid Planet Software GmbH" />
-                    </a>
+                    <div class="menu">
+                        <?=$this->component($this->boxes['bottomMenu']);?>
+                    </div>
+                    <div class="vivid">
+                        <a href="http://www.vivid-planet.com" title="Vivid Planet Software GmbH" rel="popup_blank">
+                            <img src="/assets/web/images/vividPlanetDark.png" alt="Vivid Planet Software GmbH" />
+                        </a>
+                    </div>
+                    <div class="based">
+                        <p>KOALA web framework is an open source software of Vivid Planet Software GmbH</p>
+                        <p>Based on
+                            <a href="http://www.sencha.com/products/extjs/" rel="popup_blank">
+                                <?=$this->image('/assets/web/images/extjs.png', 'ExtJS')?>
+                            </a>
+                            and
+                            <a href="http://framework.zend.com/" rel="popup_blank">
+                                <?=$this->image('/assets/web/images/zend.png', 'Zend Framework')?>
+                            </a>
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>

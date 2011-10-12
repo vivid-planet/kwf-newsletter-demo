@@ -1,5 +1,5 @@
 .cssClass {
-    height: 84px;
+    height: 55px;
     background: url('/assets/web/images/mainMenuSeparator.jpg') no-repeat bottom right;
 }
 .cssClass ul li {
@@ -9,14 +9,16 @@
 .cssClass ul li a {
     display: block;
     width: 154px;
-    height: 84px;
+    height: 30px;
     font-weight: bold;
     margin: 0px 0px 0px 1px;
     text-align: center;
     text-transform: uppercase;
+    color: var(light);
+    padding-top: 25px;
 }
 .cssClass ul li.current a,
 .cssClass ul li a:hover {
     color: var(light);
-    background: url('/assets/web/images/mainMenuActive.png') no-repeat top left;
+    background: url('/assets/web/images/activeMenuItem.png') no-repeat top left;
 }
