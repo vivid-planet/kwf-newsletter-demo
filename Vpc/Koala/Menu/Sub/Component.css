@@ -5,7 +5,7 @@
     color: var(light);
     background: url('/assets/web/images/subMenuBg.png') no-repeat top left;
 }
-.cssClass ul li { margin-bottom: 0px; }
+.cssClass ul li { margin-bottom: 0px; margin-left: 0px; }
 .cssClass ul li a {
     display: block;
     width: 174px;
@@ -19,7 +19,8 @@
     color: var(light);
     background: url('/assets/web/images/subSubMenuActiveBg.png') no-repeat top left;
 }
-.cssClass ul li ul li.last { margin-bottom: 25px; }
+.cssClass ul li ul li { margin-left: 15px; }
+.cssClass ul li ul li.last { margin-bottom: 10px; }
 .cssClass ul li.current ul li a { color: var(mainColor); background: none; }
 .cssClass ul li.current ul li a:hover,
 .cssClass ul li.current ul li.current a {
