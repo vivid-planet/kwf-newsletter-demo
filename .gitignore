@@ -1,13 +1,11 @@
 querylog
-benchmark.rrd
 *.kdev4
 .project
 .buildpath
 .settings
-vps-libconfig.db.ini
 include_path
 update
 eventlog
 kwf-lib
-vkwf_lib
 config.local.ini
+library
