@@ -12,6 +12,11 @@ class Root_Component extends Kwc_Root_Component
         $ret['generators']['title']['component'] = 'Kwc_Box_TitleEditable_Component';
 
         $ret['editComponents'] = array('title', 'metaTags');
+
+        $ret['contentWidth'] = 780;
+        $ret['contentWidthBoxSubtract'] = array(
+            'subMenu' => 205,
+        );
         return $ret;
     }
 }
