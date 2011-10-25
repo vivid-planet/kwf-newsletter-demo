@@ -1,24 +1,20 @@
 <?php
 chdir(dirname(__FILE__));
-if (file_exists('application/include_path')) {
-    define('VPS_PATH', str_replace('%vps_branch%', trim(file_get_contents('application/vps_branch')), trim(file_get_contents('application/include_path'))));
-} else {
-    define('VPS_PATH', dirname(__FILE__).'/vps-lib');
-}
 $include_path  = get_include_path();
-$include_path .= PATH_SEPARATOR . 'application/controllers';
-$include_path .= PATH_SEPARATOR . 'application/models';
-$include_path .= PATH_SEPARATOR . VPS_PATH;
+$include_path .= PATH_SEPARATOR . 'controllers';
+$include_path .= PATH_SEPARATOR . 'models';
+$include_path .= PATH_SEPARATOR . 'components';
+$include_path .= PATH_SEPARATOR . 'app';
 set_include_path($include_path);
-require_once 'Vps/Setup.php';
-Vps_Setup::setUp();
-Vps_Setup::dispatchVpc();
-Vps_Setup::dispatchMedia();
-Vps_Assets_Loader::load();
+require_once 'kwf-lib/Kwf/Setup.php';
+Kwf_Setup::setUp();
+Kwf_Setup::dispatchKwc();
+Kwf_Setup::dispatchMedia();
+Kwf_Assets_Loader::load();
 
-$front = Vps_Controller_Front_Component::getInstance();
+$front = Kwf_Controller_Front_Component::getInstance();
 
-// acl ist in Vps_Koala_Acl und in config ist die aclClass gesetzt
+// acl ist in Acl und in config ist die aclClass gesetzt
 
 $response = $front->dispatch();
 $response->sendResponse();
