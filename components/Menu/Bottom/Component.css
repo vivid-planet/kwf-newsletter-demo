@@ -1,9 +1,0 @@
-.cssClass ul { margin-bottom: 10px !important; }
-.cssClass li { display: inline; }
-.cssClass li a {
-    font-weight: bold;
-    color: var(darkGray);
-    padding: 0px 10px;
-}
-.cssClass li a:hover,
-.cssClass li.current a { color: var(mainColor); }

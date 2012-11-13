@@ -1,5 +1,5 @@
 <?php
-class List_Gallery_Component extends Kwc_List_Gallery_Component
+class Newsletter_Subscribe_Component extends Kwc_NewsletterCategory_Subscribe_Component
 {
     public static function getSettings()
     {
@@ -7,3 +7,4 @@ class List_Gallery_Component extends Kwc_List_Gallery_Component
         return $ret;
     }
 }
+ 

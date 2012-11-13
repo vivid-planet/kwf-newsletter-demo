@@ -1,22 +1,35 @@
 <?php
-class Root_Component extends Kwc_Root_Component
+class Root_Component extends Kwc_Root_Abstract
 {
     public static function getSettings()
     {
         $ret = parent::getSettings();
-
-        $ret['generators']['box']['component']['mainMenu'] = 'Menu_Main_Component';
-        $ret['generators']['box']['component']['subMenu'] = 'Menu_Sub_Component';
-        $ret['generators']['box']['component']['bottomMenu'] = 'Menu_Bottom_Component';
-        $ret['generators']['box']['component']['metaTags'] = 'Kwc_Box_MetaTagsContent_Component';
-        $ret['generators']['title']['component'] = 'Kwc_Box_TitleEditable_Component';
-
-        $ret['editComponents'] = array('title', 'metaTags');
-
-        $ret['contentWidth'] = 780;
-        $ret['contentWidthBoxSubtract'] = array(
-            'subMenu' => 205,
+        $ret['generators']['newsletter'] = array(
+            'class' => 'Kwf_Component_Generator_Static',
+            'component' => 'Newsletter_Component'
         );
+
+        $ret['generators']['subscribe'] = array(
+            'class' => 'Kwf_Component_Generator_Static',
+            'component' => 'Newsletter_Subscribe_Component'
+        );
+
+        $ret['generators']['home'] = array(
+            'class' => 'Kwf_Component_Generator_Page_Static',
+            'component' => 'Home_Component'
+        );
+
+        $ret['contentWidth'] = 930;
         return $ret;
+    }
+
+    //static home
+    public function getPageByUrl($path, $acceptLangauge)
+    {
+        if ($path == '') {
+            return $this->getData()->getChildComponent('_home');
+        } else {
+            return parent::getPageByUrl($path, $acceptLangauge);
+        }
     }
 }
