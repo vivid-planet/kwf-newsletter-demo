@@ -1,2 +1,5 @@
 srpc-call
 clear-view-cache
+*.log
+*.err
+
